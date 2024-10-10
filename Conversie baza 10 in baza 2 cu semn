@@ -1,0 +1,40 @@
+//program Conversie din baza 10 in baza 2 ,semn pozitiv si negativ (nu fata de 1 sau fata de 2)
+using System;
+using System.Collections;
+class GFG{
+public static string ConvertToBase(int numberInBase10,int newBase){
+    int b=newBase;
+    int n=numberInBase10;
+    
+    if(b>16 || b<2){Console.WriteLine("Base must be greater than 2 and less than 16");
+return "Bad";}
+bool pos;
+if(n>=0){pos=true;}else{pos=false;n*=-1;}
+    Stack s=new Stack();
+    while (n!=0){
+        int r=n%b;
+        n/=b;
+    s.Push(r);
+    }
+string result="";
+int resultCount=0;
+foreach(var elem in s){
+    result+=elem;
+    resultCount++;
+}
+while(resultCount<7){result="0"+result;resultCount++;}
+if(resultCount<8){
+    resultCount++;
+    if(pos==true){result+="0"+result;}else{result="1"+result;}
+}
+return result;
+}
+    static public void Main(string[] args){
+    Console.Write("Enter number:\t");
+    int n=int.Parse(Console.ReadLine());
+    Console.Write("Enter base\t");
+    int b=int.Parse(Console.ReadLine());
+    string res=ConvertToBase(n,b);
+    Console.WriteLine(res);
+     }
+}
