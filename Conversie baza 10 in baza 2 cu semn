@@ -2,7 +2,7 @@
 using System;
 using System.Collections;
 class GFG{
-public static string ConvertToBase(int numberInBase10,int newBase){
+public static string ConvertToBase(int numberInBase10,int newBase=2){
     int b=newBase;
     int n=numberInBase10;
     
@@ -34,7 +34,7 @@ return result;
     int n=int.Parse(Console.ReadLine());
     Console.Write("Enter base\t");
     int b=int.Parse(Console.ReadLine());
-    string res=ConvertToBase(n,b);
+    string res=ConvertToBase(n);
     Console.WriteLine(res);
      }
 }
